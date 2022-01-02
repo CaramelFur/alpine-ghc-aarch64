@@ -7,6 +7,9 @@ build_ghc() {
 
   abuild -F -r deps fetch verify unpack build rootpkg
 
+  # My files gone, what?
+  find ~
+
   apk add --allow-untrusted /root/packages/**/ghc*.apk
 
   cd ../../../
@@ -17,7 +20,8 @@ build_cabal_bootstrap() {
 
   sed -i 's/x86_64/x86_64 aarch64/g' ./APKBUILD
 
-  abuild -F -r deps fetch verify unpack build rootpkg
+  abuild -F -r
+  find ~
 
   apk add --allow-untrusted /root/packages/**/cabal*.apk
 
@@ -29,7 +33,7 @@ build_cabal() {
 
   sed -i 's/x86_64/x86_64 aarch64/g' ./APKBUILD
 
-  abuild -F -r deps fetch verify unpack build rootpkg
+  abuild -F -r
 
   cd ../../../
 }

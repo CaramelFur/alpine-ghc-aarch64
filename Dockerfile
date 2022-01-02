@@ -17,4 +17,3 @@ RUN apk add --allow-untrusted *.apk
 RUN git clone --depth 1 --branch v3.15.0 git://git.alpinelinux.org/aports
 
 ADD ./builder.sh ./
-ENTRYPOINT [ "./builder.sh" ]
