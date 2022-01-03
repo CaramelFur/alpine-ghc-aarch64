@@ -45,10 +45,12 @@ main() {
   mv /root/packages/community/*/*.apk /data
 
   build_cabal_bootstrap
-  #mv /root/packages/community/*/*.apk /data
+  mv /root/packages/community/*/*.apk /data
 
   build_cabal
   mv /root/packages/community/*/*.apk /data
+
+  rm -rf /data/cabal-bootstrap*.apk
 }
 
 main
