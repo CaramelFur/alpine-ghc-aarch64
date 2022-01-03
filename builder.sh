@@ -10,7 +10,7 @@ build_ghc() {
   # My files gone, what?
   find ~
 
-  apk add --allow-untrusted /root/packages/**/ghc*.apk
+  apk add --allow-untrusted /root/packages/community/*/ghc*.apk
 
   cd ../../../
 }
@@ -23,7 +23,7 @@ build_cabal_bootstrap() {
   abuild -F -r
   find ~
 
-  apk add --allow-untrusted /root/packages/**/cabal*.apk
+  apk add --allow-untrusted /root/packages/community/*/cabal*.apk
 
   cd ../../../
 }
@@ -42,10 +42,13 @@ main() {
   abuild-keygen -a -n
 
   build_ghc
-  build_cabal_bootstrap
-  build_cabal
+  mv /root/packages/community/*/*.apk /data
 
-  mv /root/packages/**/*.apk /data
+  build_cabal_bootstrap
+  #mv /root/packages/community/*/*.apk /data
+
+  build_cabal
+  mv /root/packages/community/*/*.apk /data
 }
 
 main
